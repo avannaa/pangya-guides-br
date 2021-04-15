@@ -13,6 +13,7 @@ como faz pra prever o futuro? vamos pensar nos dados que vão de entrada na calc
 - ângulo
 - quebras
 
+vamos considerar que a gente manda a primeira tacada para cair sempre no mesmo lugar. se não mandar sempre no mesmo lugar, não tem como antecipar as coisas..  
 em uma ordem meio aleatória, alguns comentários sobre a dificuldade de antecipar cada uma dessas coisas:
 - **vento:** easy, a gente já sabe desde o começo \o/
 - **distância:** easy, consegue anotar rápido depois da primeira tacada (hole 2 é um caso especial)
@@ -51,7 +52,7 @@ então, como aplicar isso em deep (ou qualquer outro mapa, por sinal)? faz igual
 pega a diferença de ângulo entre a primeira tacada e a segunda tacada, para o jeito que você faz a primeira tacada para cada pin.
 
 mas como fazer para obter esses dados da diferença de ângulo? para ter mais certeza que os valores ficaram bons, eu usei uma "abordagem estatística".  
-ou seja, eu joguei o mapa um monte de vezes e fui anotando os valores de ângulo na primeira tacada e na segunda, e assim usei todos esses dados para descobrir a média do giro.
+ou seja, eu joguei o mapa um monte de vezes sempre fazendo a primeira tacada caindo na mesma região e fui anotando os valores de ângulo na primeira tacada e na segunda, e assim usei todos esses dados para descobrir a média do giro.
 
 [link de uma planilha completamente desorganizada que eu fiz para isso](https://drive.google.com/file/d/1gQHeyhVRW0NtDaDDIp64YpgLTlq0UTQt/view?usp=sharing)  
 "start" é o ângulo quando carrega o hole, "final" é o ângulo na segunda tacada, e normalizei os ângulos para 0-360 graus..
