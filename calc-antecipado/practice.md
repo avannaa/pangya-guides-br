@@ -24,12 +24,14 @@ essa não é uma excel "normal". as entradas são nas células B1-B5, mas o que 
 - **ang base:** ângulo do vento ao começar sua vez, antes de mexer o taco. presta atenção no vídeo
 - **dist real:** distância do hole após realizar sua tacada
 - **vento:** força do vento
-- **quad:** quadrante onde está o vento, ver imagem. PRESTAR ATENÇÃO que o "1" é o canto superior direito, se não gostou edita
+- **quad:** quadrante onde está o vento, ver imagem  
+![quads](https://i.imgur.com/3bEKmqI.png)  
+PRESTAR ATENÇÃO que o "1" é o canto superior direito
 - **rain:** se está chovendo ou não. "y" se estiver, qualquer outra coisa se não estiver
 
 mas Sera, e quebras altura terreno??  
 se fizer a primeira tacada igual eu faço, nós já sabemos qual vai ser a quebra, altura e terreno para a segunda. portanto, eu já deixei isso embutido no cálculo e não é necessário digitar.  
-se quiser fazer a primeira tacada de forma diferente, vai ter que coletar seus próprios dados e editar (ver a parte 2)
+se quiser fazer a primeira tacada de forma diferente, vai ter que coletar seus próprios dados e editar (ver a (parte 2)[https://github.com/sera-pangya/pangya-guides-br/blob/main/calc-antecipado/theory.md])
 
 lembrete para fazer a primeira tacada igual eu faço (prestar atenção no vídeo).  
 se usar força diferente da minha, também tem um pouco de variação na força que você deve usar.  
