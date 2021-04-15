@@ -31,7 +31,7 @@ PRESTAR ATENÇÃO que o "1" é o canto superior direito
 
 mas Sera, e quebras altura terreno??  
 se fizer a primeira tacada igual eu faço, nós já sabemos qual vai ser a quebra, altura e terreno para a segunda. portanto, eu já deixei isso embutido no cálculo e não é necessário digitar.  
-se quiser fazer a primeira tacada de forma diferente, vai ter que coletar seus próprios dados e editar (ver a (parte 2)[https://github.com/sera-pangya/pangya-guides-br/blob/main/calc-antecipado/theory.md])
+se quiser fazer a primeira tacada de forma diferente, vai ter que coletar seus próprios dados e editar (ver a [parte 2](theory.md))
 
 lembrete para fazer a primeira tacada igual eu faço (prestar atenção no vídeo).  
 se usar força diferente da minha, também tem um pouco de variação na força que você deve usar.  
