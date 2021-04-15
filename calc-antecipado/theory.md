@@ -58,14 +58,14 @@ ou seja, eu joguei o mapa um monte de vezes e fui anotando os valores de ângulo
 
 # colocando tudo em prática
 
-depois que já conseguiu antecipar todos esses dados de entrada para cada pin, como que faz para editar a excel para deixar o cálculo antecipado?
+depois que já conseguiu antecipar todos esses dados de entrada para cada pin, como que faz para editar a excel para deixar o cálculo antecipado?  
 é necessário já ter uma prática razoável editando excels. para o propósito de jogar deep 3, provavelmente é mais fácil editar a plataforma que eu deixei...
 
-a ideia é fazer várias cópias do cálculo com os dados de entrada já preenchidos, sendo cada cópia dedicada a antecipar um pin.
+a ideia é fazer várias cópias do cálculo com os dados de entrada já preenchidos, sendo cada cópia dedicada a antecipar um pin.  
 tendo esses resultados, é só organizar de uma forma bonitinha para poder olhar e entender com facilidade, e se fez tudo certinho tá lá :D
 
-essa é uma boa hora para falar do hole 2. os ângulos que eu escolhi para tabelar não foram escolhidos aleatoriamente.
-em média, a diferença entre eles é de 0.1 de seno, o que explica a ausência de mais ângulos entre 66 e 90. coloquei o ângulo 78 para não desconsiderar totalmente também a variação rápida no eixo da força.
+essa é uma boa hora para falar do hole 2. os ângulos que eu escolhi para tabelar não foram escolhidos aleatoriamente.  
+em média, a diferença entre eles é de 0.1 de seno, o que explica a ausência de mais ângulos entre 66 e 90. coloquei o ângulo 78 para não desconsiderar totalmente também a variação rápida no eixo da força.  
 claro que você pode tabelar o hole 2 como quiser, ou até mesmo fazer de formas diferentes - eu escolhi essa forma por considerar ser o melhor custo-benefício entre quantidade de informação e espaço ocupado.
 
 
