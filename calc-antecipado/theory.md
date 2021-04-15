@@ -40,17 +40,17 @@ em média, qual vai ser o "giro", em outras palavras, qual a diferença de ângu
 - **ponto 1:** como nos movemos em linha reta até o hole, a diferença média entre os ângulos vai ser nenhuma (zero). em outras palavras, o ângulo da segunda tacada vai ser o mesmo da primeira
 - **ponto 2:**  
 ![giro 15](https://i.imgur.com/LCeqoip.png)  
-podemos ver que o ângulo se mexeu aproximadamente uns 15 graus para o lado. em outras palavras, giro de 15 graus nessa direção
+podemos ver que o ângulo se mexeu aproximadamente uns 15 graus para o lado. em outras palavras, giro de 15 graus nessa direção!
 
-qual vai ser o giro no ponto 3? não testei, mas podemos dizer com certeza que vai ser menos de 15 graus.
+qual vai ser o giro no ponto 3? não testei, mas podemos dizer com certeza que vai ser mais que 0 graus e menos que 15 graus.
 
 ## como obter
 
-essa é a ideia do "giro". se nós sempre fizermos esse teeshot do ponto 1 para o ponto 2, podemos esperar que o ângulo vai sempre "girar" 15 graus nessa direção.  
+essa é a ideia do "giro". se nós sempre fizermos essa primeira tacada do **ponto inicial** para o **ponto 2**, podemos esperar que o ângulo vai sempre **"girar" 15 graus nessa direção**.  
 então, como aplicar isso em deep (ou qualquer outro mapa, por sinal)? faz igual nesse exemplo!  
 pega a diferença de ângulo entre a primeira tacada e a segunda tacada, para o jeito que você faz a primeira tacada para cada pin.
 
-mas como fazer para obter esses dados da diferença de ângulo? eu usei uma "abordagem estatística".  
+mas como fazer para obter esses dados da diferença de ângulo? para ter mais certeza que os valores ficaram bons, eu usei uma "abordagem estatística".  
 ou seja, eu joguei o mapa um monte de vezes e fui anotando os valores de ângulo na primeira tacada e na segunda, e assim usei todos esses dados para descobrir a média do giro.
 
 [link de uma planilha completamente desorganizada que eu fiz para isso](https://drive.google.com/file/d/1gQHeyhVRW0NtDaDDIp64YpgLTlq0UTQt/view?usp=sharing)  
