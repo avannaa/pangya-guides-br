@@ -54,14 +54,14 @@ essa constante varia de acordo com a tacada e a força do taco - por exemplo, o 
 
 ## influência da quebra na força
 
-a influência de cada quebra na força também vai ser menor conforme o taco, tacada e %.  
+a influência de cada quebra na força também vai ser menor conforme o taco, tacada e % (efeito da % é MUITO pequeno mas existe, aparentemente. ou talvez a relação não é com a %, e sim com o HWI? esses efeitos são tão pequenos que é difícil de dizer, então nem importa, na real).  
 as quebras SEMPRE vão ter o efeito de mandar a bolinha mais longe 👀
 
 também há uma variação beeeeem pequena na influência de cada quebra de acordo com a quantidade de quebras - quanto mais quebras, menor a influência de cada uma na força.  
 por exemplo, para dunk 1w 332 20spin 100% a primeira quebra desconta 0.075y da distância, mas se forem 10 quebras, cada quebra vai valer só ~0.068y :o
 
 a margem de erro permitida para o cálculo da força é razoavelmente grande, então não pesquisei tanto a respeito disso.  
-o importante é saber que esse efeito existe~
+o importante é saber que esses efeitos existem~
 
 
 ## exemplo
@@ -76,7 +76,7 @@ diferença de ângulo entre quebra alinhada e ponto mira: aproximadamente 62.7
 ``quebra real = 16.1 * cos 62.7`` ``= 7.4 componente-x``
 
 ### segunda parte: componente-x da quebra * hwi final * % * constante
-``7.4 * 1.02 * 0.9278 * 0.3321`` ``= 2.331y``  
+``7.4 * 1.020 * 0.9278 * 0.3321`` ``= 2.331y``  
 no caso, essa constante (0.3321) serve para essa escala que eu usei. se contar por pixel, tem que usar outro número...
 
 depois não esquece também de adicionar o resultado do vento, claro
@@ -84,9 +84,10 @@ depois não esquece também de adicionar o resultado do vento, claro
 ## inf da quebra na força
 
 sei lá, desconta ``7.4 * 0.075 * 0.926 * 0.99278`` ``= 0.51y`` da distância, dorgas (não pergunte)
+isso é ``componente-x * valor da primeira quebra na força * efeito do número de quebras * efeito da %``. não faço ideia se essas compensações são boas ou não, cai bastante
 
 boa sorte -.( ' ~ ' ).- 
-se tiver dúvidas azar, é isso aí
+se tiver dúvidas, azar, é isso aí
 
 
 ## e aí?
