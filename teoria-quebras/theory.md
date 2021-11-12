@@ -54,10 +54,10 @@ essa constante varia de acordo com a tacada e a força do taco - por exemplo, o 
 
 ## influência da quebra na força
 
-a influência de cada quebra na força também vai ser menor conforme o taco, tacada e % (efeito da % é MUITO pequeno mas existe, aparentemente. ou talvez a relação não é com a %, e sim com o hwi? esse efeito é tão pequeno que é difícil de dizer, então nem importa, na real).  
+a influência de cada quebra na força também vai ser menor conforme o taco, tacada e % (efeito da % é MUITO pequeno, mas existe. ou talvez a relação não é com a %, e sim com o hwi? esse efeito é tão pequeno que é difícil de dizer, então nem importa, na real).  
 as quebras SEMPRE vão ter o efeito de mandar a bolinha mais longe 👀
 
-também há uma variação beeeeem pequena na influência de cada quebra de acordo com a quantidade de quebras - quanto mais quebras, menor a influência de cada uma na força.  
+também há uma variação bem pequena na influência de cada quebra de acordo com a quantidade de quebras - quanto mais quebras, menor a influência de cada uma na força.  
 por exemplo, para dunk 1w 332 20spin 100% a primeira quebra desconta 0.075y da distância, mas se forem 10 quebras, cada quebra vai valer só ~0.068y :o
 
 a margem de erro permitida para o cálculo da força é razoavelmente grande, então não pesquisei tanto a respeito disso.  
@@ -77,21 +77,20 @@ diferença de ângulo entre quebra alinhada e ponto mira: aproximadamente 62.7
 
 ### segunda parte: componente-x da quebra * hwi final * % * constante
 ``7.4 * 1.020 * 0.9278 * 0.3321`` ``= 2.331y``  
-no caso, essa constante (0.3321) serve para essa escala que eu usei. se contar por pixel, tem que usar outro número...
+no caso, essa constante (0.3321) serve para essa escala que eu usei. se contar por pixel, você vai ter outro valor de componente-x e tem que usar outra constante...
 
-depois não esquece também de adicionar o resultado do vento, claro
+depois não esquece também de adicionar na mira o resultado do vento, claro
 
-## inf da quebra na força
+### inf da quebra na força
 
-sei lá, desconta ``7.4 * 0.075 * 0.926 * 0.99278`` ``= 0.51y`` da distância, dorgas (não pergunte)  
+sei lá, desconta ``7.4 * 0.075 * 0.926 * 0.99278`` ``= 0.51y`` da distância.  
 isso é ``componente-x * valor da primeira quebra na força * efeito do número de quebras * efeito da %``  
-não faço ideia se esses valores para essas compensações são bons ou não, peguei uns poucos dados e a partir deles criei umas fórmulas aleatoriamente. cai bastante
+não faço ideia se esses valores para essas compensações são bons ou não, peguei uns poucos dados e a partir deles criei umas fórmulas aleatoriamente. cai bastante, dorgas, não pergunte
 
-boa sorte -.( ' ~ ' ).- 
-se tiver dúvidas, azar, é isso aí
+boa sorte -.( ' ~ ' ).- se tiver dúvidas, azar, é isso aí
 
 
-## e aí?
+## e daí?
 
 tem muita coisa errada circulando por aí.  
 vamos falar de "geradores de quebra":
@@ -102,22 +101,23 @@ geradores são uma gambiarra feita pelos players para corrigir erros da base das
 
 quando você junta uma gambiarra em cima da outra, só vai conseguir acertar casos de muitas quebras (tipo, 10+) na sorte ou decorando.  
 fórmulas erradas nas calcs são uma fonte grande de inconsistências nos dados - todo mundo das antigas deve lembrar de casos clássicos em que A MESMA QUEBRA valia, por exemplo, "2.0 para dunk, 1.8 para tomahawk" (ainda dá para ver dessas nos guias por aí), e tinha até casos piores de dorgas em que diziam "o valor da quebra muda para vento alto".  
-é óbvio que a quebra sempre é a mesma, então, de onde é que vem o problema? das fórmulas usadas nas calculadoras.
+é óbvio que a quebra sempre é a mesma, então, de onde é que vem o problema? das fórmulas usadas nas calculadoras, então era necessário jogar um valor de quebra errado para um erro anular o outro.
 
 falo isso não para desmerecer os esforços dos nossos antepassados, muito pelo contrário, eu também estava lá~  
-era MUITO mais difícil de fazer ciência nos tempos antigos, então era quase impossível investigar a fundo essas coisas. mas, agora que nós já entendemos mais do jogo, é hora de revisar as bases dos cálculos para não sofrer mais com esses velhos problemas de dados inconsistentes <3
+era MUITO mais difícil de fazer ciência nos tempos antigos, então era quase impossível investigar a fundo, mesmo que já suspeitássemos dessas coisas. mas, agora que nós já entendemos mais do jogo, é hora de revisar as bases dos cálculos para não sofrer mais com esses velhos problemas de dados inconsistentes <3
 
 
 
 ## BONUS: funcionamento real das quebras na memória
 
+essa parte é para quem desenvolve helpers ou para quem é curioso, sei lá.
 eu zerei a componente-x ou componente-y nas prints iniciais só para fins de exemplo.
 
 de fato, há dois valores na memória que dizem respeito às quebras. porém, ambos os valores possuem uma componente-x e uma componente-y, de acordo com a diferença de ângulo entre a nossa mira e o ponto-zero do hole.
 
 **importante:** o ponto-zero do hole é uma referência definida pelos criadores do mapa quando criaram o hole, raramente vai estar em cima do pin. então, essa diferença de ângulo NÃO é o ângulo do vento que nós colocamos na calc, e infelizmente não tem como encontrar de forma trivial sem comando gm ou acesso à memória T_T
 
-muitos chamam `v1` de `slope x` e `v2` de `slope y`, mas eu não gosto desses nomes, porque os dois valores tem componente-x e componente-y de acordo com nossa mira.  
+muitos chamam `v1` de `slope-x` e `v2` de `slope-y`, mas eu não gosto desses nomes, porque os dois valores tem componente-x e componente-y de acordo com nossa mira.  
 provavelmente é mais fácil entender com um exemplo:
 
 ```
