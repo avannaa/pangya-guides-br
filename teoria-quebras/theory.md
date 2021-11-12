@@ -7,8 +7,8 @@ aqui NÃO vou ensinar a contar quebras, mas só para não passar batido, recomen
 
 # componentes da quebra
 
-como "todos" já sabem a essa altura, a quebra possui uma componente x e uma componente y.  
-alguns exemplos a seguir (valores de acordo com acesso à memória do jogo):
+como "todos" já sabem a essa altura, a quebra possui uma componente-x (horizontal) e uma componente-y (vertical).  
+alguns exemplos a seguir (valores de acordo com acesso à memória do jogo, visualização da s4):
 
 | ![0.08x](0.08x.png) | ![0.08y](0.08y.png) | ![0.08x, 0.08y](0.08x%2C%200.08y.png) |
 |-------------|-------------|-|
@@ -22,7 +22,7 @@ ela não influencia nem na força (vídeo):
 [![slope-y video](https://img.youtube.com/vi/Yw9XEveIh8w/0.jpg)](https://www.youtube.com/watch?v=Yw9XEveIh8w)  
 (a pequena diferença no resultado é porque a mira não ficou perfeitamente alinhada para todas as tacadas, então tem uma componente-x microscópica na quebra)
 
-então, o que a componente-y faz?  
+portanto, o exemplo que diz **0.00x, 0.08y** é calculado de forma exatamente igual a 0 quebras. então, o que a componente-y faz?  
 quando você gira para o lado, as quebras-y vão virar quebras-x, e as quebras-x vão virar quebras-y. se você girar 90 graus, vai inverter quebra-x e quebra-y :o  
 em termos práticos, a componente-y também pode atrapalhar bastante na visualização ;(
 
@@ -38,9 +38,9 @@ assim como o vento, a quebra influencia a trajetória da bolinha durante todo o 
 
 a fórmula que eu uso para calcular a influência da quebra no desvio é:
 
-``componente x da quebra * hwi final * % * constante``
+``componente-x da quebra * hwi final * % * constante``
 
-**componente x da quebra:** é o que muitos chamam de "quebra real", contada do jeito que você (ou a calc) quiser.  
+**componente-x da quebra:** é o que muitos chamam de "quebra real", contada do jeito que você (ou a calc) quiser.  
 pode usar escala visual ("normal"), escala pixel, escala da memória do jogo ou seja lá o que for, desde que a escala utilizada seja a mesma em todos os lugares do cálculo.
 
 **hwi final:** influência do vento usada na tacada, depois de descontar a influência da altura e tal.
@@ -49,8 +49,8 @@ pode usar escala visual ("normal"), escala pixel, escala da memória do jogo ou 
 por exemplo, se vai mandar usando 94% da força, multiplica por 0.94
 
 **constante:** é um número que depende do taco e da escala. basicamente, a ideia é que essa constante vai relacionar o valor da quebra com o valor do hwi.  
-portanto, se você conta em pixel, você vai usar uma constante diferente de quem conta na escala visual (mas o resultado final na mira deve ser o mesmo).  
-essa constante varia de acordo com a tacada e a força do taco - por exemplo, o valor do 2w vai ser menor do que o do 3w, e a para dunk 1w 334y vai ser maior do que para dunk 1w 266y.
+portanto, se você conta em pixel, você vai usar uma constante diferente de quem conta na escala visual (mas, no final do cálculo, o resultado final na mira deve ser o mesmo).  
+essa constante varia de acordo com a tacada e a força do taco - por exemplo, o valor da constante do 3w vai ser menor do que a do 2w, e a constante do dunk 1w 334y vai ser maior do que a do dunk 1w 266y.
 
 ## influência da quebra na força
 
@@ -69,31 +69,49 @@ o importante é saber que esse efeito existe~
 **vídeo**  
 [![slope demo video](https://img.youtube.com/vi/uTjE33t8kxc/0.jpg)](https://www.youtube.com/watch?v=uTjE33t8kxc)
 
-### primeira parte: mycella
-16.1 quebras em escala visual season 4  
+### primeira parte: mycella (para descobrir a componente-x)
+~16.1 quebras em escala visual season 4  
 diferença de ângulo entre quebra alinhada e ponto mira: aproximadamente 62.7
 
-``quebra real = 16.1 * cos 62.7`` ``= 7.4``
+``quebra real = 16.1 * cos 62.7`` ``= 7.4 componente-x``
 
-### segunda parte: componente x da quebra * hwi final * % * constante
-``7.4 * 1.02 * 0.9278 * 0.3321`` ``= 2.331y``
+### segunda parte: componente-x da quebra * hwi final * % * constante
+``7.4 * 1.02 * 0.9278 * 0.3321`` ``= 2.331y``  
+no caso, essa constante (0.3321) serve para essa escala que eu usei. se contar por pixel, tem que usar outro número...
 
-adiciona o resultado do vento, claro
-
-boa sorte -.( ' ~ ' ).-
+boa sorte -.( ' ~ ' ).- depois não esquece também de adicionar o resultado do vento, claro  
 se tiver dúvidas azar, é isso aí
 
-## bonus: funcionamento real das quebras na memória
+## e aí?
 
-eu zerei a componente x ou y nas prints iniciais para fins de exemplo.
-na verdade, de fato há dois valores de quebra na memória, mas ambos os valores possuem uma componente x e uma componente y de acordo com o ângulo mira.  
-esse ângulo mira NÃO é o ângulo do vento, é uma referência definida pelos criadores do mapa quando criaram o hole.  
-infelizmente, não tem como encontrar esse ponto referência de forma trivial ;(
+tem muita coisa errada circulando por aí.  
+vamos falar de "geradores de quebra":
+- geradores não deveriam existir. essas correções que muitos players usam gerador para fazer - descontar a distância real por causa das quebras, e descontar a inf da quebra por causa da % - deveriam ser feitas em TODOS os cálculos (em outras palavras, edite a calculadora, boa sorte)
+- ainda falando de geradores, o valor que você deve descontar da distância real é apenas baseado na componente-x ("quebra real"). a maioria usa a quebra máxima, o que está errado
 
+geradores são uma gambiarra feita pelos players para corrigir erros da base das calculadoras, muitas das quais são antigas (feitas em tempos em que não era possível verificar com precisão esses efeitos, a maioria nem sabia que eles existem).
+
+quando você junta uma gambiarra em cima da outra, só vai conseguir acertar casos de muitas quebras (tipo, 10+) na sorte ou decorando.  
+fórmulas erradas nas calcs são uma fonte grande de inconsistências nos dados - todo mundo das antigas deve lembrar de casos clássicos em que A MESMA QUEBRA valia, por exemplo, "2.0 para dunk, 1.8 para tomahawk" (ainda dá para ver dessas nos guias por aí), e tinha até casos piores de dorgas em que diziam "o valor da quebra muda para vento alto".  
+é óbvio que a quebra sempre é a mesma, então, de onde é que vem o problema? das fórmulas usadas nas calculadoras.
+
+falo isso não para desmerecer os esforços dos nossos antepassados, muito pelo contrário, eu também estava lá~  
+era MUITO mais difícil de fazer ciência nos tempos antigos, então era quase impossível investigar a fundo essas coisas. mas, agora que nós já entendemos mais do jogo, é hora de revisar as bases dos cálculos para não sofrer mais com esses velhos problemas de dados inconsistentes <3
+
+
+
+## BONUS: funcionamento real das quebras na memória
+
+eu zerei a componente-x ou componente-y nas prints iniciais só para fins de exemplo.
+
+de fato, há dois valores na memória que dizem respeito às quebras.  
+porém, ambos os valores possuem uma componente-x e uma componente-y, de acordo com a diferença de ângulo entre a nossa mira e o ponto-zero do hole (o ponto-zero raramente vai estar em cima do hole, então essa diferença de ângulo NÃO é o ângulo do vento que nós colocamos na calc. o ponto-zero é uma referência definida pelos criadores do mapa quando criaram o hole, que infelizmente não tem como encontrar de forma trivial sem comando gm ou acesso à memória T_T)
+
+muitos chamam `v1` de `slope x` e `v2` de `slope y`, mas eu não gosto desses nomes, porque os dois valores tem componente-x e componente-y de acordo com nossa mira.  
 provavelmente é mais fácil entender com um exemplo:
 
 ```
-v1: 0.042  v2: 0.134     ângulo mira: 71.9
+v1: 0.042  v2: 0.134     diferença de ângulo: 71.9
 
 v1x: v1 * cos(a)   |   0.04 * 0.31 = 0.013
 v1y: v1 * sin(a)   |   0.04 * 0.95 = 0.040
@@ -105,3 +123,4 @@ vy: (v1y+v2y) * 100 | (0.040+0.042) * 100 = 8.2
 ```
 
 para mais exemplos, assista meu vídeo de auto-slope :o https://www.youtube.com/watch?v=l6VGsviUL1M
+se entender, quiser fazer algum helper e publicar free, tem meu apoio moral
