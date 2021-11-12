@@ -104,8 +104,9 @@ era MUITO mais difícil de fazer ciência nos tempos antigos, então era quase i
 
 eu zerei a componente-x ou componente-y nas prints iniciais só para fins de exemplo.
 
-de fato, há dois valores na memória que dizem respeito às quebras.  
-porém, ambos os valores possuem uma componente-x e uma componente-y, de acordo com a diferença de ângulo entre a nossa mira e o ponto-zero do hole (o ponto-zero raramente vai estar em cima do hole, então essa diferença de ângulo NÃO é o ângulo do vento que nós colocamos na calc. o ponto-zero é uma referência definida pelos criadores do mapa quando criaram o hole, que infelizmente não tem como encontrar de forma trivial sem comando gm ou acesso à memória T_T)
+de fato, há dois valores na memória que dizem respeito às quebras. porém, ambos os valores possuem uma componente-x e uma componente-y, de acordo com a diferença de ângulo entre a nossa mira e o ponto-zero do hole.
+
+**importante:** o ponto-zero do hole é uma referência definida pelos criadores do mapa quando criaram o hole, raramente vai estar em cima do pin. então, essa diferença de ângulo NÃO é o ângulo do vento que nós colocamos na calc, e infelizmente não tem como encontrar de forma trivial sem comando gm ou acesso à memória T_T
 
 muitos chamam `v1` de `slope x` e `v2` de `slope y`, mas eu não gosto desses nomes, porque os dois valores tem componente-x e componente-y de acordo com nossa mira.  
 provavelmente é mais fácil entender com um exemplo:
@@ -123,4 +124,6 @@ vy: (v1y+v2y) * 100 | (0.040+0.042) * 100 = 8.2
 ```
 
 para mais exemplos, assista meu vídeo de auto-slope :o https://www.youtube.com/watch?v=l6VGsviUL1M
-se entender, quiser fazer algum helper e publicar free, tem meu apoio moral
+
+aí já tem tudo o que precisa saber para fazer seu próprio auto-slope para usar em servers que, por algum motivo misterioso, permitem essa libertinagem de acesso à memória (como o pangyabr).  
+se quiser fazer algum helper e publicar free, tem meu apoio moral (mas não tenho tempo de ajudar pessoalmente, sorry)
