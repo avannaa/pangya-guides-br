@@ -79,8 +79,15 @@ diferença de ângulo entre quebra alinhada e ponto mira: aproximadamente 62.7
 ``7.4 * 1.02 * 0.9278 * 0.3321`` ``= 2.331y``  
 no caso, essa constante (0.3321) serve para essa escala que eu usei. se contar por pixel, tem que usar outro número...
 
-boa sorte -.( ' ~ ' ).- depois não esquece também de adicionar o resultado do vento, claro  
+depois não esquece também de adicionar o resultado do vento, claro
+
+## inf da quebra na força
+
+sei lá, desconta ``7.4 * 0.075 * 0.926 * 0.99278`` ``= 0.51y`` da distância, dorgas (não pergunte)
+
+boa sorte -.( ' ~ ' ).- 
 se tiver dúvidas azar, é isso aí
+
 
 ## e aí?
 
