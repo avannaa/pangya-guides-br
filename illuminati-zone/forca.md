@@ -38,7 +38,7 @@ eu já escrevi sobre teoria das quebras, está tudo explicado lá no meu [artigo
 basicamente, ter "quebra real" SEMPRE vai mandar a bolinha mais longe, e a influência de cada quebra depende de quantas quebras são (mais quebras = um pouco menos inf).  
 mandar menos % também vai diminuir a inf de cada quebra, por bem pouco.
 
-esse efeito é consideravelmente importante quando se está dunkando de distâncias altas.  
+esse efeito é consideravelmente importante quando se está dunkando de distâncias altas, ou quando se tem muitas quebras.  
 então, se seu cálculo não considera isso, vai ser difícil dunkar mais de 300y~
 
 
@@ -71,17 +71,17 @@ esse efeito existe para todas as tacadas.
 
 # altura
 
-essa também é fácil, é só altura * H. certo?  
+essa também é fácil, é só `altura * H`. certo?  
 para quem não conhece esse termo das antigas, H é um valor que representa a influência de cada 1m na distância.  
 por exemplo, se você tem um H de 0.8 e uma altura de -20, você vai descontar `0.8 * 20` da distância real `= 16y`.
 
 para começar a conversa, vou postar esse diagrama que o tonycheese fez antes de 2010 (!) e eu posto na metade dos meus textos:
-![tonycheese](https://i.imgur.com/RXEz9Sr.jpg)
+![tonycheese](https://i.imgur.com/4ZVUdnm.png)
 
 
 tem duas coisas muito importantes aí:
-- a % influencia o H
-- a própria altura influencia o H
+- a **%** influencia o H
+- a **própria altura** influencia o H
 
 **primeira coisa importante:** ao diminuir a %, o H vai aumentar (notar como o arco da bolinha no 80% tem um ângulo que pega mais influência da altura).  
 isso é QUASE sempre verdade - as exceções são dorgas. por exemplo, dunk usando 20% ou menos do taco em alturas muito negativas, ou o cobra shot.
@@ -111,12 +111,15 @@ para exemplificar como esses efeitos funcionam na prática, vou postar uns valor
 | **55%** |  |  |  |  | 3.016 | 2.520 | 2.340 | 2.096 | 1.867 | 1.564 | 1.363 | 1.217 | 0.875 |
 | **50%** |  |  |  |  | 3.450 | 2.780 | 2.590 | 2.264 | 2.000 | 1.660 | 1.436 | 1.278 | 0.911 |
 
+**esses valores são só para essa tacada!!!!!!**  
+em geral, forças mais baixas vão ter valores de H maiores, e os valores de H para 1w vão ser maiores do que para 2w, etc~
+
 
 # spin
 
 todo mundo já deve estar familiarizado com ter que ajustar o spin para dunks.  
 para que fazer isso? essa pergunta é fácil, mais spin back = mais longe.  
-por que fazer isso? essa pergunta também é fácil. em muitos casos, a diferença entre um caliper e outro vai ser muito grande (tipo, perto de 1y), e então é útil usar o spin como um "meio caliper".
+por que fazer isso? essa pergunta também é fácil (ignorando o fato de ser a mesma pergunta). em muitos casos, a diferença entre um caliper e outro vai ser muito grande (tipo, perto de 1y), e então é útil usar o spin como um "meio caliper".
 
 então, vamos para uma pergunta mais difícil: quanto é que vale 1 spin?  
 como sempre, a resposta para essa pergunta depende da tacada e da %, além do valor do próprio spin.  
@@ -154,10 +157,10 @@ então, agora que eu sei como funciona a influência de cada fator, é só somar
 
 digamos que nós temos a distância real. vamos considerar uns valores aleatórios aqui..  
 daí a gente adiciona `+4.0` do terreno.  
-daí a gente considera esse novo resultado (considerando o terreno) para decidir qual H usar, e calculamos o H da altura positiva, soma `+6.0` da altura.  
+daí a gente considera esse novo resultado (considerando o terreno) para decidir qual H usar, e calculamos o `altura positiva * H`, soma `+6.0` da altura.  
 daí a gente considera esse novo resultado (considerando o terreno e a altura) para decidir a inf do vento, e calculamos o `vento back * ângulo * influência`, `+5.0` do vento.
 
-então, o resultado da força vai ser `distância real + 4.0+6.0+5.0`. certo? não.  
+então, o resultado da força vai ser `distância real + 4.0 + 6.0 + 5.0`. certo? não.  
 qual é o problema? o problema é que a altura e o vento mudam a força, mas quando você muda a força, isso também vai mudar o H e a influência do vento. referência circular 👀
 
 nesse caso, nós consideramos o H para a % que seria depois de distância + terreno, mas depois nós adicionamos mais 11y na distância!  
@@ -181,5 +184,5 @@ em termos práticos, tem duas coisas que são mais importantes:
 - ter uma aproximação razoável para não ter um erro muito grande nas infs por causa da ordem em que os fatores são adicionados
 
 é isso aí, boa sorte :)  
-se tiver dúvidas, azar, não tenho tempo de ficar respondendo pergunta de todo mundo.  
+se tiver dúvidas, azar, não tenho tempo de ficar respondendo pergunta de todo mundo T_T  
 talvez passa no nosso [discord](https://discord.gg/2UYHA2W85d), se der sorte consegue uma resposta lá~
